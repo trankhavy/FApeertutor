@@ -2,5 +2,4 @@
 
 ## Welcome! 
 
-The weekly exercises have been uploaded with appropriate solution pages. Please attempt the questions before looking at the answers. Reach out to peer tutors during office hours for further clarification. 
-
+The weekly exercises have been uploaded with appropriate solution pages. Please attempt the questions before looking at the answers. Feel free to reach out to peer tutors during office hours if you have any questions 
