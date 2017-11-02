@@ -1,0 +1,88 @@
+#Beginner 1
+def my_function(a,b,c):
+    n = (a*b)/c
+    print(n)
+    return n
+
+my_function(1,2,3)
+
+#Beginner 3
+def my_function_2(a,b):
+    m = a+b
+    print(m)
+    return m
+my_function_2(1,2)
+my_function_2("Python", "is cool") #string does have add
+
+#Beginner 4
+def map_test(n):
+    n = n*2
+    return n
+
+items = [1,2,3,4,5]
+map_test = map(map_test, items)
+print(set(map_test)) #it is important to use set() or list() to convert it and make it appear on screen
+
+def calculateSquare(n):
+  return n*n
+
+numbers = (1, 2, 3, 4)
+result = map(calculateSquare, numbers)
+print(set(result))
+
+#lambda function allow a function to run with out a name
+#Syntax: lambda argument: expession Ex: lambda x: x*2
+
+#filter
+number_list = range(-5,6)
+less_than_zero = filter(lambda x: x<0, number_list)
+print(list(less_than_zero))
+
+#reduce
+from functools import reduce
+product = reduce((lambda x,y: x*y), [1,2,3,4,5])
+print(product)
+
+#Plotting a mathematical function
+list_test = [1,2,3,4,5,6,7,8,9,10]
+result_3 = map(lambda x: 3*(x**2) + 1, list_test)
+print("Answer for 2.1",list(result_3))
+
+import numpy as np
+def create_domain(a,b,n):
+    list_created = []
+    space = (b-a)/(n-1)
+    for i in range(0,n):
+        list_created.append(a + space*i)
+    return list_created
+print("Create domain function: ", create_domain(0,1,5))
+
+#2.3: my_function, my_domain and my_range, plot it
+#Notice: map return iterator -> must convert to list and array in order for function to process
+my_domain = np.array(list(create_domain(-10,10,100)))
+my_range = np.array(list(map(lambda x: 3*(x**2)+1, my_domain))) #Notice here that ** NOT ^-> ^ is the XOR operator which cannot be applied to float type
+
+import matplotlib.pyplot as plt
+plt.plot(my_domain, my_range)
+plt.show()
+
+import math
+my_domain_2 = np.array(list(create_domain(-10,10,100000)))
+my_range_2 = np.array(list(map(lambda x: math.sin(x), my_domain_2)))
+print(len(my_domain_2), len(my_range_2))
+plt.plot(my_domain_2, my_range_2)
+plt.show()
+
+#Project Euler 48
+sum_all = sum(pow(i,i) for i in range(1,1001))
+last_ten = sum_all % 10**10
+print(last_ten)
+
+##Partial-Sudoku
+import numpy as np
+array = np.random.randint(1,10, size = 9, dtype = "int")
+array_sorted = sorted(array)
+if sum(array_sorted) == 45:
+    print("The subgrid meets sudoku criteria")
+else:
+    print("The subgrid does not meet sudoku criteria")
